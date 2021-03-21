@@ -1,2 +1,0 @@
-# functestlulu
-azure
