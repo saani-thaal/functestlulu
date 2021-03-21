@@ -1,11 +1,5 @@
-from flask import Flask
-app = Flask(__name__)
 
-@app.route("/")
-def hello():
-    return status
 
-status = 'not yet'
 
 import datetime, time
 import logging
@@ -190,8 +184,18 @@ def run_it():
 
 
 
-status=run_it()
+def main(mytimer: func.TimerRequest) -> None:
+    #IST 5hr 30min ahead of UTC
+    utc_timestamp = datetime.datetime.utcnow().replace(
+        tzinfo=datetime.timezone.utc).isoformat()
+    
+    
+    #write your here
+    status='Unsuccessfule'
+    
+    status=run_it()
+
+    logging.info('Python timer trigger function run is %s by %s', status,utc_timestamp)
 
 
-if __name__ == '__main__':
-    app.run()
+
